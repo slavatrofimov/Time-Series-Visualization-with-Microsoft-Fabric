@@ -509,15 +509,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#component-details" class="md-nav__link">
+  <a href="#key-component-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component Details
+        Key Component Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Component Details">
+    <nav class="md-nav" aria-label="Key Component Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -580,6 +580,17 @@
     <span class="md-ellipsis">
       
         Time Series Brush Slicer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-bi-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power BI Report
       
     </span>
   </a>
@@ -1007,15 +1018,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#component-details" class="md-nav__link">
+  <a href="#key-component-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component Details
+        Key Component Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Component Details">
+    <nav class="md-nav" aria-label="Key Component Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1078,6 +1089,17 @@
     <span class="md-ellipsis">
       
         Time Series Brush Slicer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-bi-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power BI Report
       
     </span>
   </a>
@@ -1192,7 +1214,7 @@
 
     subgraph SemanticModel["Power BI Semantic Model"]
         direction LR
-        F[Dynamic M Parameters] ~~~ G[Power Query Functions] ~~~ H[KQL Queries] ~~~ I[DirectQuery]
+        F[Dynamic M Query Parameters] ~~~ G[Power Query Functions] ~~~ H[KQL Queries] ~~~ I[DirectQuery]
     end
 
     subgraph Backend["KQL Database"]
@@ -1202,35 +1224,35 @@
 
     subgraph Visualization["Power BI Visualizations"]
         direction LR
-        L[Line Charts] ~~~ M[Tables] ~~~ N[Statistics]
+        L[Line Charts] ~~~ M[Statistics Tables]
     end
 
     UserInputs ==&gt; SemanticModel
     SemanticModel ==&gt; Backend
     SemanticModel ==&gt; Visualization</code></pre>
-<h2 id="component-details">Component Details<a class="headerlink" href="#component-details" title="Permanent link">&para;</a></h2>
-<h3 id="kql-database">KQL Database<a class="headerlink" href="#kql-database" title="Permanent link">&para;</a></h3>
+<h2 id="key-component-details">Key Component Details<a class="headerlink" href="#key-component-details" title="Permanent link">&para;</a></h2>
+<h3 id="kql-database"><a href="https://learn.microsoft.com/en-us/kusto/query/time-series-analysis?view=microsoft-fabric">KQL Database</a><a class="headerlink" href="#kql-database" title="Permanent link">&para;</a></h3>
 <p>The KQL Database (in Microsoft Fabric or Azure Data Explorer) provides:</p>
 <ul>
-<li><strong>Highly scalable storage</strong> for time series data</li>
-<li><strong>Performant query execution</strong> with native time series functions</li>
-<li><strong>Server-side processing</strong> for filtering, aggregation, and anomaly detection</li>
+<li>Highly scalable storage for time series data</li>
+<li>Performant query execution with native time series functions</li>
+<li>Server-side processing for filtering, aggregation, and anomaly detection</li>
 </ul>
-<h3 id="power-bi-semantic-model">Power BI Semantic Model<a class="headerlink" href="#power-bi-semantic-model" title="Permanent link">&para;</a></h3>
-<p>The semantic model operates in <strong>DirectQuery mode</strong>, which means:</p>
+<h3 id="power-bi-semantic-model"><a href="https://learn.microsoft.com/power-bi/connect-data/desktop-directquery-about">Power BI Semantic Model</a><a class="headerlink" href="#power-bi-semantic-model" title="Permanent link">&para;</a></h3>
+<p>The semantic model operates in DirectQuery mode, which means:</p>
 <ul>
 <li>Queries are executed in real-time against the KQL database</li>
 <li>No data is imported or cached in Power BI</li>
 <li>Changes to source data are immediately reflected</li>
 </ul>
-<h3 id="dynamic-m-query-parameters">Dynamic M Query Parameters<a class="headerlink" href="#dynamic-m-query-parameters" title="Permanent link">&para;</a></h3>
+<h3 id="dynamic-m-query-parameters"><a href="https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-dynamic-m-query-parameters">Dynamic M Query Parameters</a><a class="headerlink" href="#dynamic-m-query-parameters" title="Permanent link">&para;</a></h3>
 <p>Power BI's Dynamic M Query Parameters enable:</p>
 <ul>
 <li>Passing user inputs from filters and slicers to Power Query</li>
 <li>Constructing custom KQL queries based on user selections</li>
 <li>Efficient filtering at the data source level</li>
 </ul>
-<h3 id="power-query-functions">Power Query Functions<a class="headerlink" href="#power-query-functions" title="Permanent link">&para;</a></h3>
+<h3 id="power-query-functions"><a href="https://learn.microsoft.com/power-query/custom-function">Power Query Functions</a><a class="headerlink" href="#power-query-functions" title="Permanent link">&para;</a></h3>
 <p>Custom Power Query functions handle:</p>
 <ul>
 <li>Parsing parameter values from the brush slicer</li>
@@ -1238,14 +1260,14 @@
 <li>Constructing well-formed KQL queries</li>
 <li>Handling edge cases and data validation</li>
 </ul>
-<h3 id="field-parameters">Field Parameters<a class="headerlink" href="#field-parameters" title="Permanent link">&para;</a></h3>
+<h3 id="field-parameters"><a href="https://learn.microsoft.com/power-bi/create-reports/power-bi-field-parameters">Field Parameters</a><a class="headerlink" href="#field-parameters" title="Permanent link">&para;</a></h3>
 <p>Power BI Field Parameters allow end users to:</p>
 <ul>
 <li>Customize chart layouts dynamically</li>
 <li>Choose which metrics to display</li>
 <li>Configure small multiples and legends</li>
 </ul>
-<h3 id="time-series-brush-slicer">Time Series Brush Slicer<a class="headerlink" href="#time-series-brush-slicer" title="Permanent link">&para;</a></h3>
+<h3 id="time-series-brush-slicer"><a href="https://github.com/slavatrofimov/Time-Series-Brush-Slicer">Time Series Brush Slicer</a><a class="headerlink" href="#time-series-brush-slicer" title="Permanent link">&para;</a></h3>
 <p>The custom visual provides:</p>
 <ul>
 <li>Interactive time range selection</li>
@@ -1253,30 +1275,38 @@
 <li>Anomaly and marker highlighting</li>
 <li>Smooth brushing experience</li>
 </ul>
+<h3 id="power-bi-report"><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/">Power BI Report</a><a class="headerlink" href="#power-bi-report" title="Permanent link">&para;</a></h3>
+<p>Power BI reports offer rich and highly-interactive data visualization experiences.
+- Wide variety of visuals, such as tables and line charts
+- Interactive cross filtering and cross highlighting
+- Intuitive layout and formatting options</p>
 <h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
 <h3 id="how-power-bi-works-with-the-kql-database">How Power BI Works with the KQL Database<a class="headerlink" href="#how-power-bi-works-with-the-kql-database" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>sequenceDiagram
     participant User
-    participant BrushSlicer as Time Series&lt;br/&gt;Brush Slicer
+    participant Inputs as Filters, Native Slicers,&lt;br/&gt;Time Series Brush Slicer
     participant PowerQuery as Power Query
     participant KQL as KQL Database
     participant Visuals as Report Visuals
 
-    User-&gt;&gt;BrushSlicer: Select time range
-    BrushSlicer-&gt;&gt;PowerQuery: Output parameter string&lt;br/&gt;"2025-04-20|2025-04-30"
-    PowerQuery-&gt;&gt;PowerQuery: Parse parameter&lt;br/&gt;Build KQL query
-    PowerQuery-&gt;&gt;KQL: Execute query
+    User-&gt;&gt;Inputs: Select time range,&lt;br/&gt;tags, and other parameters
+    Inputs-&gt;&gt;PowerQuery: Pass query parameters
+    PowerQuery-&gt;&gt;PowerQuery: Parse parameter&lt;br/&gt;Compute time bins&lt;br/&gt;Build KQL queries
+    PowerQuery-&gt;&gt;KQL: Execute queries
     KQL-&gt;&gt;KQL: Filter, aggregate,&lt;br/&gt;detect anomalies
     KQL-&gt;&gt;PowerQuery: Return summarized results
     PowerQuery-&gt;&gt;Visuals: Display data
-    Visuals-&gt;&gt;User: Updated charts</code></pre>
+    Visuals-&gt;&gt;User: Rendered report visuals</code></pre>
+<p>Note: this data flow is <em>iterative</em> -- it is repeated every time a user provides inputs via filters, native slicers or the custom Time Series Brush Slicer. </p>
 <h3 id="step-by-step-flow">Step-by-Step Flow<a class="headerlink" href="#step-by-step-flow" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>You select a time range</strong> by brushing on the visual</li>
+<li><strong>User provides initial inputs</strong> using Power BI report filters and slicers, including the Time Series Brush Slicer custom visual</li>
+<li><strong>User selects a time range</strong> by brushing on the visual</li>
 <li><strong>The visual outputs a text parameter</strong> with your selected dates</li>
 <li><strong>Power Query parses the parameter</strong> and builds a KQL query with filters</li>
 <li><strong>KQL Database processes everything</strong> at the source—filtering, aggregating, detecting anomalies</li>
 <li><strong>Only the results come back</strong> to Power BI, not the raw data</li>
+<li><strong>Power BI renders visuals</strong> and allows the user to continue exploration.</li>
 </ol>
 <h2 id="why-this-architecture-is-fast">Why This Architecture Is Fast<a class="headerlink" href="#why-this-architecture-is-fast" title="Permanent link">&para;</a></h2>
 <table>
@@ -1315,9 +1345,9 @@
 </ul>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Authentication uses Microsoft Entra ID (Azure AD)</li>
-<li>Row-level security can be implemented in the KQL database</li>
+<li>Authentication uses <a href="https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra">Microsoft Entra ID</a></li>
 <li>Benefit from extensive <a href="https://learn.microsoft.com/en-us/fabric/security/security-overview">security features in Microsoft Fabric</a></li>
+<li><a href="https://learn.microsoft.com/en-us/kusto/management/row-level-security-policy?view=microsoft-fabric">Row-level security</a> can be implemented in the KQL database</li>
 </ul>
 
 
