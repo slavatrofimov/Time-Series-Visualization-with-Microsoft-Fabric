@@ -12,7 +12,7 @@ Solution accelerator for visualizing time series data with Microsoft Fabric
 
 This solution accelerator helps you analyze time series data in Power BI using an interactive brush-based selection experience combined with a KQL Database in Microsoft Fabric (or Azure Data Explorer).
 
-![Time Series Visualization](assets/Time-Series-Analysis-PBI-Screenshot-1280.png)
+![Time Series Visualization](docs/assets/Time%20Series%20Brushing.gif)
 
 ## Quick Start
 

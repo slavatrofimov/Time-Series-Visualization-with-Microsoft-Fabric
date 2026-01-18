@@ -10,7 +10,7 @@
 This solution accelerator helps you analyze time series data in Power BI using an interactive brush-based selection experience combined with a KQL Database in Microsoft Fabric (or Azure Data Explorer). Simply select what metrics to analyze, select an initial time period, and choose how to lay out your charts. Then, drag the time-brushing controls to select any portion of the time range with your visuals updating instantly, even when working with billions of rows.
 
 <figure markdown>
-  ![Time Series Visualization Demo](assets/Time-Series-Analysis-PBI-Screenshot-1280.png){ loading=lazy }
+  ![Time Series Visualization Demo](assets/Time%20Series%20Brushing.gif){ loading=lazy }
   <figcaption>Interactive time series visualization with brush-based selection</figcaption>
 </figure>
 
