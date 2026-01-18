@@ -23,7 +23,7 @@ The basic solution demonstrates the concepts of time series data visualization w
 
 Follow these steps to get started quickly:
 
-1. **Download or clone this GitHub repository** to your local computer
+1. **[Download or clone this GitHub repository](https://github.com/slavatrofimov/Time-Series-Visualization-with-Microsoft-Fabric)** to your local computer
 
 2. **Open the project file** in Power BI Desktop:
    ```
@@ -45,7 +45,7 @@ Follow these steps to get started quickly:
 
 ### Step 1: Open the Project
 
-1. Download or clone this GitHub repository to your local computer
+1. [Download or clone this GitHub repository](https://github.com/slavatrofimov/Time-Series-Visualization-with-Microsoft-Fabric) to your local computer
 2. Open the `Time Series Viz - Basic.pbip` file in Power BI Desktop
 
 ![Initial Power BI Report](../assets/Customize%20PBI%20Project/Initial%20Report.png)

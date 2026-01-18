@@ -30,7 +30,7 @@ The Advanced solution builds upon the foundation of the Basic solution, while en
 
 Follow these steps to get started quickly:
 
-1. **Download or clone this GitHub repository** to your local computer
+1. **[Download or clone this GitHub repository](https://github.com/slavatrofimov/Time-Series-Visualization-with-Microsoft-Fabric)** to your local computer
 
 2. **Open the project file** in Power BI Desktop:
    ```
@@ -52,7 +52,7 @@ Follow these steps to get started quickly:
 
 ### Step 1: Open the Project
 
-1. Download or clone this GitHub repository to your local computer
+1. [Download or clone this GitHub repository](https://github.com/slavatrofimov/Time-Series-Visualization-with-Microsoft-Fabric) to your local computer
 2. Open the `Time Series Viz - Advanced.pbip` file in Power BI Desktop
 
 ### Step 2: Open Power Query Editor
