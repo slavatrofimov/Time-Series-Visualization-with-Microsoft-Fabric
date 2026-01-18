@@ -1,0 +1,138 @@
+# Architecture
+
+This page describes the architecture and data flow of the Time Series Visualization solution.
+
+## Solution Components
+
+```mermaid
+flowchart TB
+    subgraph UserInputs["Power BI Report: User Inputs"]
+        direction LR
+        A[Filters] ~~~ B[Native Slicers] ~~~ C[Time Series Brush Slicer] ~~~ D[Field Parameters]
+    end
+    
+    subgraph SemanticModel["Power BI Semantic Model"]
+        direction LR
+        F[Dynamic M Parameters] ~~~ G[Power Query Functions] ~~~ H[KQL Queries] ~~~ I[DirectQuery]
+    end
+    
+    subgraph Backend["KQL Database"]
+        direction LR
+        J[Tables & Views] ~~~ K[Time Series Processing] ~~~ K2[Anomaly Detection]
+    end
+
+    subgraph Visualization["Power BI Visualizations"]
+        direction LR
+        L[Line Charts] ~~~ M[Tables] ~~~ N[Statistics]
+    end
+
+    UserInputs ==> SemanticModel
+    SemanticModel ==> Backend
+    SemanticModel ==> Visualization
+```
+
+## Component Details
+
+### KQL Database
+
+The KQL Database (in Microsoft Fabric or Azure Data Explorer) provides:
+
+- **Highly scalable storage** for time series data
+- **Performant query execution** with native time series functions
+- **Server-side processing** for filtering, aggregation, and anomaly detection
+
+### Power BI Semantic Model
+
+The semantic model operates in **DirectQuery mode**, which means:
+
+- Queries are executed in real-time against the KQL database
+- No data is imported or cached in Power BI
+- Changes to source data are immediately reflected
+
+### Dynamic M Query Parameters
+
+Power BI's Dynamic M Query Parameters enable:
+
+- Passing user inputs from filters and slicers to Power Query
+- Constructing custom KQL queries based on user selections
+- Efficient filtering at the data source level
+
+### Power Query Functions
+
+Custom Power Query functions handle:
+
+- Parsing parameter values from the brush slicer
+- Computing optimal time bin sizes
+- Constructing well-formed KQL queries
+- Handling edge cases and data validation
+
+### Field Parameters
+
+Power BI Field Parameters allow end users to:
+
+- Customize chart layouts dynamically
+- Choose which metrics to display
+- Configure small multiples and legends
+
+### Time Series Brush Slicer
+
+The custom visual provides:
+
+- Interactive time range selection
+- Visual context for the full time period
+- Anomaly and marker highlighting
+- Smooth brushing experience
+
+## Data Flow
+
+### How Power BI Works with the KQL Database
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant BrushSlicer as Time Series<br/>Brush Slicer
+    participant PowerQuery as Power Query
+    participant KQL as KQL Database
+    participant Visuals as Report Visuals
+    
+    User->>BrushSlicer: Select time range
+    BrushSlicer->>PowerQuery: Output parameter string<br/>"2025-04-20|2025-04-30"
+    PowerQuery->>PowerQuery: Parse parameter<br/>Build KQL query
+    PowerQuery->>KQL: Execute query
+    KQL->>KQL: Filter, aggregate,<br/>detect anomalies
+    KQL->>PowerQuery: Return summarized results
+    PowerQuery->>Visuals: Display data
+    Visuals->>User: Updated charts
+```
+
+### Step-by-Step Flow
+
+1. **You select a time range** by brushing on the visual
+2. **The visual outputs a text parameter** with your selected dates
+3. **Power Query parses the parameter** and builds a KQL query with filters
+4. **KQL Database processes everything** at the source—filtering, aggregating, detecting anomalies
+5. **Only the results come back** to Power BI, not the raw data
+
+## Why This Architecture Is Fast
+
+| Optimization | Description |
+|--------------|-------------|
+| **Filtered at source** | The KQL database only processes data in your selected time range |
+| **Server-side processing** | Aggregations, binning, and calculations happen in the highly-performant KQL database |
+| **Minimal data transfer** | Only summarized results flow to Power BI |
+| **Automatic optimization** | The report adjusts time granularity based on your selections |
+
+## Scalability
+
+This architecture can handle:
+
+- **Billions of data points** through intelligent binning
+- **Multiple concurrent users** by querying highly-scalable KQL Databases in DirectQuery mode
+- **Real-time data** without refresh delays
+- **Large tag hierarchies** with efficient metadata queries
+
+## Security Considerations
+
+- Authentication uses Microsoft Entra ID (Azure AD)
+- Row-level security can be implemented in the KQL database
+- Benefit from extensive [security features in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/security/security-overview)

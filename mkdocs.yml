@@ -1,0 +1,105 @@
+site_name: Time Series Visualization with Microsoft Fabric
+site_description: Solution accelerator for visualizing time series data with Power BI and KQL Databases in Microsoft Fabric
+site_author: Slava Trofimov
+site_url: https://slavatrofimov.github.io/Time-Series-Visualization-with-Microsoft-Fabric/
+
+repo_name: Time-Series-Visualization-with-Microsoft-Fabric
+repo_url: https://github.com/slavatrofimov/Time-Series-Visualization-with-Microsoft-Fabric
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Solution Design:
+    - Architecture: reference/architecture.md
+    - Configuration Options: reference/configuration-options.md
+    - Time Series Brush Slicer: reference/brush-slicer.md
+  - Getting Started:
+    - Basic Solution: getting-started/basic-solution.md
+    - Advanced Solution: getting-started/advanced-solution.md
+  - Resources:
+    - External Links: resources/external-links.md
+    - Contributing: contributing.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: slavatrofimov
+      repo: Time-Series-Visualization-with-Microsoft-Fabric
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/slavatrofimov/Time-Series-Visualization-with-Microsoft-Fabric
+  generator: false
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
+copyright: Copyright &copy; 2026 Slava Trofimov
