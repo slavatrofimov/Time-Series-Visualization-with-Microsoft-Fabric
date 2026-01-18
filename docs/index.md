@@ -74,13 +74,13 @@ This solution accelerator includes two Power BI projects:
 
 | Component | Purpose |
 |-----------|---------|
-| **KQL Database** | Highly scalable time series storage, processing and query capabilities |
-| **Power BI Semantic Model** | DirectQuery mode delegates query execution to KQL Database |
-| **Dynamic M Query Parameters** | Pass user inputs to construct custom queries |
-| **Power Query Functions** | Parse parameters and implement advanced logic |
-| **Field Parameters** | Enable end users to customize chart layouts |
-| **Time Series Brush Slicer** | Custom visual for intuitive time navigation |
-| **Power BI Report** | Rich and highly-interactive data visualization |
+| [**KQL Database**](https://learn.microsoft.com/en-us/kusto/query/time-series-analysis?view=microsoft-fabric) | Highly scalable time series storage, processing and query capabilities |
+| [**Power BI Semantic Model**](https://learn.microsoft.com/power-bi/connect-data/desktop-directquery-about) | DirectQuery mode delegates query execution to KQL Database |
+| [**Dynamic M Query Parameters**](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-dynamic-m-query-parameters) | Pass user inputs to construct custom queries |
+| [**Power Query Functions**](https://learn.microsoft.com/power-query/custom-function) | Parse parameters and implement advanced logic |
+| [**Field Parameters**](https://learn.microsoft.com/power-bi/create-reports/power-bi-field-parameters) | Enable end users to customize chart layouts |
+| [**Time Series Brush Slicer**](https://github.com/slavatrofimov/Time-Series-Brush-Slicer) | Custom visual for intuitive time navigation |
+| [**Power BI Report**](https://learn.microsoft.com/en-us/power-bi/create-reports/) | Rich and highly-interactive data visualization |
 
 ## Learn More
 

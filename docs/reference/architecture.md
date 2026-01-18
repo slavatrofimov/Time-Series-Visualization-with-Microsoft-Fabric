@@ -23,7 +23,7 @@ flowchart TB
 
     subgraph Visualization["Power BI Visualizations"]
         direction LR
-        L[Line Charts] ~~~ M[Tables] ~~~ N[Statistics]
+        L[Line Charts] ~~~ M[Statistics Tables]
     end
 
     UserInputs ==> SemanticModel
@@ -31,9 +31,10 @@ flowchart TB
     SemanticModel ==> Visualization
 ```
 
-## Component Details
 
-### KQL Database
+## Key Component Details
+
+### [KQL Database](https://learn.microsoft.com/en-us/kusto/query/time-series-analysis?view=microsoft-fabric)
 
 The KQL Database (in Microsoft Fabric or Azure Data Explorer) provides:
 
@@ -41,7 +42,7 @@ The KQL Database (in Microsoft Fabric or Azure Data Explorer) provides:
 - **Performant query execution** with native time series functions
 - **Server-side processing** for filtering, aggregation, and anomaly detection
 
-### Power BI Semantic Model
+### [Power BI Semantic Model](https://learn.microsoft.com/power-bi/connect-data/desktop-directquery-about)
 
 The semantic model operates in **DirectQuery mode**, which means:
 
@@ -49,7 +50,7 @@ The semantic model operates in **DirectQuery mode**, which means:
 - No data is imported or cached in Power BI
 - Changes to source data are immediately reflected
 
-### Dynamic M Query Parameters
+### [Dynamic M Query Parameters](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-dynamic-m-query-parameters)
 
 Power BI's Dynamic M Query Parameters enable:
 
@@ -57,7 +58,7 @@ Power BI's Dynamic M Query Parameters enable:
 - Constructing custom KQL queries based on user selections
 - Efficient filtering at the data source level
 
-### Power Query Functions
+### [Power Query Functions](https://learn.microsoft.com/power-query/custom-function)
 
 Custom Power Query functions handle:
 
@@ -66,7 +67,7 @@ Custom Power Query functions handle:
 - Constructing well-formed KQL queries
 - Handling edge cases and data validation
 
-### Field Parameters
+### [Field Parameters](https://learn.microsoft.com/power-bi/create-reports/power-bi-field-parameters)
 
 Power BI Field Parameters allow end users to:
 
@@ -74,7 +75,7 @@ Power BI Field Parameters allow end users to:
 - Choose which metrics to display
 - Configure small multiples and legends
 
-### Time Series Brush Slicer
+### [Time Series Brush Slicer](https://github.com/slavatrofimov/Time-Series-Brush-Slicer)
 
 The custom visual provides:
 
@@ -82,6 +83,13 @@ The custom visual provides:
 - Visual context for the full time period
 - Anomaly and marker highlighting
 - Smooth brushing experience
+
+
+### [Power BI Report](https://learn.microsoft.com/en-us/power-bi/create-reports/) 
+Power BI reports offer rich and highly-interactive data visualization experiences.
+- Wide variety of visuals, such as tables and line charts
+- Interactive cross filtering and cross highlighting
+- Intuitive layout and formatting options
 
 ## Data Flow
 
@@ -133,6 +141,6 @@ This architecture can handle:
 
 ## Security Considerations
 
-- Authentication uses Microsoft Entra ID (Azure AD)
-- Row-level security can be implemented in the KQL database
+- Authentication uses [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra)
 - Benefit from extensive [security features in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/security/security-overview)
+- [Row-level security](https://learn.microsoft.com/en-us/kusto/management/row-level-security-policy?view=microsoft-fabric) can be implemented in the KQL database
