@@ -13,7 +13,7 @@ flowchart TB
     
     subgraph SemanticModel["Power BI Semantic Model"]
         direction LR
-        F[Dynamic M Parameters] ~~~ G[Power Query Functions] ~~~ H[KQL Queries] ~~~ I[DirectQuery]
+        F[Dynamic M Query Parameters] ~~~ G[Power Query Functions] ~~~ H[KQL Queries] ~~~ I[DirectQuery]
     end
     
     subgraph Backend["KQL Database"]
@@ -38,13 +38,13 @@ flowchart TB
 
 The KQL Database (in Microsoft Fabric or Azure Data Explorer) provides:
 
-- **Highly scalable storage** for time series data
-- **Performant query execution** with native time series functions
-- **Server-side processing** for filtering, aggregation, and anomaly detection
+- Highly scalable storage for time series data
+- Performant query execution with native time series functions
+- Server-side processing for filtering, aggregation, and anomaly detection
 
 ### [Power BI Semantic Model](https://learn.microsoft.com/power-bi/connect-data/desktop-directquery-about)
 
-The semantic model operates in **DirectQuery mode**, which means:
+The semantic model operates in DirectQuery mode, which means:
 
 - Queries are executed in real-time against the KQL database
 - No data is imported or cached in Power BI
@@ -98,28 +98,31 @@ Power BI reports offer rich and highly-interactive data visualization experience
 ```mermaid
 sequenceDiagram
     participant User
-    participant BrushSlicer as Time Series<br/>Brush Slicer
+    participant Inputs as Filters, Native Slicers,<br/>Time Series Brush Slicer
     participant PowerQuery as Power Query
     participant KQL as KQL Database
     participant Visuals as Report Visuals
     
-    User->>BrushSlicer: Select time range
-    BrushSlicer->>PowerQuery: Output parameter string<br/>"2025-04-20|2025-04-30"
-    PowerQuery->>PowerQuery: Parse parameter<br/>Build KQL query
-    PowerQuery->>KQL: Execute query
+    User->>Inputs: Select time range,<br/>tags, and other parameters
+    Inputs->>PowerQuery: Pass query parameters
+    PowerQuery->>PowerQuery: Parse parameter<br/>Compute time bins<br/>Build KQL queries
+    PowerQuery->>KQL: Execute queries
     KQL->>KQL: Filter, aggregate,<br/>detect anomalies
     KQL->>PowerQuery: Return summarized results
     PowerQuery->>Visuals: Display data
-    Visuals->>User: Updated charts
+    Visuals->>User: Rendered report visuals
 ```
 
-### Step-by-Step Flow
+Note: this data flow is *iterative* -- it is repeated every time a user provides inputs via filters, native slicers or the custom Time Series Brush Slicer. 
 
-1. **You select a time range** by brushing on the visual
+### Step-by-Step Flow
+0. **User provides initial inputs** using Power BI report filters and slicers, including the Time Series Brush Slicer custom visual
+1. **User selects a time range** by brushing on the visual
 2. **The visual outputs a text parameter** with your selected dates
 3. **Power Query parses the parameter** and builds a KQL query with filters
 4. **KQL Database processes everything** at the source—filtering, aggregating, detecting anomalies
 5. **Only the results come back** to Power BI, not the raw data
+6. **Power BI renders visuals** and allows the user to continue exploration.
 
 ## Why This Architecture Is Fast
 
