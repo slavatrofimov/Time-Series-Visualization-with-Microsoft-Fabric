@@ -1,7 +1,4 @@
-# Time Series Visualization with Power BI and KQL Databases
-
-!!! warning "Disclaimer"
-    This solution accelerator is a community project and is **not developed, maintained, or supported by Microsoft**. It is provided "as-is" without warranty of any kind. Use at your own discretion.
+# Time Series Visualization with Microsoft Fabric
 
 !!! info "Last updated: January 2026"
 
@@ -15,6 +12,40 @@ This solution accelerator helps you analyze time series data in Power BI using a
 </figure>
 
 This solution accelerator uses tag-based data, which is common in operational and industrial control scenarios (a *tag* is just an identifier for an instrument or device). Yet, this solution can be adapted to numerous other time-series analytics scenarios.
+
+!!! warning "Disclaimer"
+    This solution accelerator is a community project and is **not developed, maintained, or supported by Microsoft**. It is provided "as-is" without warranty of any kind. Use at your own discretion.
+
+## Key Capabilities
+
+### Interactive Time Selection
+
+- **Start by choosing a time period** using relative time period filters or custom date ranges
+- **Zoom into** any time range on the timeline chart
+- **See the full context** including anomalies and timeline markers for important events
+- **All visuals update** automatically when you change the time range
+
+### Rich Time Series Visualization
+
+- **Intelligent binning** of high-density time series into adaptive time spans allows working with billions of data points
+- **Compare multiple metrics** for multiple assets, metrics and tags side by side
+- **Choose aggregation** (average, sum, min, max) and time granularity
+- **Detect anomalies** and highlight them on your charts
+- **View descriptive statistics and correlations** between different time series
+- **Contextualize time series data** with details about asset hierarchies and tag metadata
+- **Intuitive chart layouts** help you identify trends, patterns and relationships in your data
+
+## Solution Components
+
+| Component | Purpose |
+|-----------|---------|
+| [**KQL Database**](https://learn.microsoft.com/en-us/kusto/query/time-series-analysis?view=microsoft-fabric) | Highly scalable time series storage, processing and query capabilities |
+| [**Power BI Semantic Model**](https://learn.microsoft.com/power-bi/connect-data/desktop-directquery-about) | DirectQuery mode delegates query execution to KQL Database |
+| [**Dynamic M Query Parameters**](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-dynamic-m-query-parameters) | Pass user inputs to construct custom queries |
+| [**Power Query Functions**](https://learn.microsoft.com/power-query/custom-function) | Parse parameters and implement advanced logic |
+| [**Field Parameters**](https://learn.microsoft.com/power-bi/create-reports/power-bi-field-parameters) | Enable end users to customize chart layouts |
+| [**Time Series Brush Slicer**](https://github.com/slavatrofimov/Time-Series-Brush-Slicer) | Custom visual for intuitive time navigation |
+| [**Power BI Report**](https://learn.microsoft.com/en-us/power-bi/create-reports/) | Rich and highly-interactive data visualization |
 
 ## Solution Variants
 
@@ -40,26 +71,6 @@ This solution accelerator includes two Power BI projects:
 
 </div>
 
-## Key Capabilities
-
-### Interactive Time Selection
-
-- **Start by choosing a time period** using relative time period filters or custom date ranges
-- **Zoom into** any time range on the timeline chart
-- **See the full context** including anomalies and timeline markers for important events
-- **All visuals update** automatically when you change the time range
-
-### Rich Time Series Visualization
-
-- **Intelligent binning** of high-density time series into adaptive time spans allows working with billions of data points
-- **Compare multiple metrics** for multiple assets, metrics and tags side by side
-- **Choose aggregation** (average, sum, min, max) and time granularity
-- **Detect anomalies** and highlight them on your charts
-- **View descriptive statistics and correlations** between different time series
-- **Contextualize time series data** with details about asset hierarchies and tag metadata
-- **Intuitive chart layouts** help you identify trends, patterns and relationships in your data
-
-
 ## Prerequisites
 
 - **Power BI Desktop** (latest version recommended)
@@ -70,21 +81,29 @@ This solution accelerator includes two Power BI projects:
 !!! tip "Sample Data Available"
     Both solutions come pre-configured to use a publicly-accessible KQL database with sample data, so you can try them out immediately without setting up your own data source.
 
-## Solution Components
+## Explore the Documentation
 
-| Component | Purpose |
-|-----------|---------|
-| [**KQL Database**](https://learn.microsoft.com/en-us/kusto/query/time-series-analysis?view=microsoft-fabric) | Highly scalable time series storage, processing and query capabilities |
-| [**Power BI Semantic Model**](https://learn.microsoft.com/power-bi/connect-data/desktop-directquery-about) | DirectQuery mode delegates query execution to KQL Database |
-| [**Dynamic M Query Parameters**](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-dynamic-m-query-parameters) | Pass user inputs to construct custom queries |
-| [**Power Query Functions**](https://learn.microsoft.com/power-query/custom-function) | Parse parameters and implement advanced logic |
-| [**Field Parameters**](https://learn.microsoft.com/power-bi/create-reports/power-bi-field-parameters) | Enable end users to customize chart layouts |
-| [**Time Series Brush Slicer**](https://github.com/slavatrofimov/Time-Series-Brush-Slicer) | Custom visual for intuitive time navigation |
-| [**Power BI Report**](https://learn.microsoft.com/en-us/power-bi/create-reports/) | Rich and highly-interactive data visualization |
+<div class="grid cards" markdown>
 
-## Learn More
+-   :material-play-circle:{ .lg .middle } **Getting Started**
 
-- **Custom Visual**: [Time-Series-Brush-Slicer on GitHub](https://github.com/slavatrofimov/Time-Series-Brush-Slicer)
-- **KQL Documentation**: [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
-- **Power BI DirectQuery**: [DirectQuery Guide](https://docs.microsoft.com/power-bi/connect-data/desktop-directquery-about)
-- **Dynamic Parameters**: [Power BI Dynamic M Query Parameters](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-dynamic-m-query-parameters)
+    ---
+
+    - [Basic Solution](getting-started/basic-solution.md) — Quick setup with core concepts
+    - [Advanced Solution](getting-started/advanced-solution.md) — Full-featured implementation
+
+-   :material-file-document:{ .lg .middle } **Solution Design**
+
+    ---
+
+    - [Architecture](reference/architecture.md) — Components and interaction flow
+    - [Configuration Options](reference/configuration-options.md) — Customization reference
+    - [Brush Slicer](reference/brush-slicer.md) — Custom visual details
+
+-   :material-account-group:{ .lg .middle } **Resources**
+
+    ---
+    - [External Links](resources/external-links.md) — Related resources
+    - [Contributing](contributing.md) — How to contribute to this project
+
+</div>

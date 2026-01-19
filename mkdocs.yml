@@ -8,6 +8,8 @@ repo_url: https://github.com/slavatrofimov/Time-Series-Visualization-with-Micros
 
 theme:
   name: material
+  logo: assets/Time-Series-Brush-Slicer-Logo-300.png
+  favicon: assets/Time-Series-Brush-Slicer-Logo-300.png
   palette:
     - scheme: default
       primary: indigo
@@ -101,5 +103,8 @@ extra:
 
 extra_javascript:
   - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
+extra_css:
+  - stylesheets/extra.css
 
 copyright: Copyright &copy; 2026 Slava Trofimov
